@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">VIX-Mandiri-AdrianTerastaGinting</string>
+    <string name="title_berita_terkini">Berita Terkini</string>
+    <string name="title_semua_berita">Semua Berita</string>
+    <string name="title_profile">Profile</string>
+    <string name="bio">Hai nama Saya Adrian Terasta Ginting, Saya lulusan baru dari Politeknik Negeri Samarinda pada Jurusan Teknologi Informasi dan Prodi Teknik Informatika Multimedia. Saya tertarik dengan Pengembangan Aplikasi Android, UI/UX Designer dan Data Science. Saya memperkaya ketrampilan dengan mengikuti berbagai kelas dan pelatihan tentang Pengembangan Aplikasi Android, UI/UX Designer dan Data Science.</string>
+    <string name="welcome_to_my_profile">Welcome To My Profile</string>
+</resources>

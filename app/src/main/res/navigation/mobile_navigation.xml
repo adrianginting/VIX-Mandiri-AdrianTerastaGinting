@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_berita_terkini">
+
+    <fragment
+        android:id="@+id/navigation_berita_terkini"
+        android:name="vix.mandiri.adrianterastaginting.ui.berita_terkini.BeritaTerkiniFragment"
+        android:label="@string/title_berita_terkini"
+        tools:layout="@layout/fragment_berita_terkini" />
+
+    <fragment
+        android:id="@+id/navigation_semua_berita"
+        android:name="vix.mandiri.adrianterastaginting.ui.semua_berita.SemuaBeritaFragment"
+        android:label="@string/title_semua_berita"
+        tools:layout="@layout/fragment_semua_berita" />
+
+    <fragment
+        android:id="@+id/navigation_profile"
+        android:name="vix.mandiri.adrianterastaginting.ui.profile.ProfileFragment"
+        android:label="@string/title_profile"
+        tools:layout="@layout/fragment_profile" />
+</navigation>
