@@ -8,5 +8,5 @@ interface SemuaBerita {
     fun getEverything(
         @Query("q") q: String,
         @Query("apiKey") apiKey: String
-    ): retrofit2.Call<NewsApiResponse>
+    ): retrofit2.Call<BeritaApiResponse>
 }

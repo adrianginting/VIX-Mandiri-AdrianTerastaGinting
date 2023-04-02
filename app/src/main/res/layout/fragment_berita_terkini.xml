@@ -17,7 +17,7 @@
         android:text="@string/title_berita_terkini" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/news_recycler_view"
+        android:id="@+id/berita_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 

@@ -1,6 +1,6 @@
 package vix.mandiri.adrianterastaginting.ui.semua_berita
 
-import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -13,16 +13,17 @@ import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import vix.mandiri.adrianterastaginting.adapter.NewsAdapter
+import vix.mandiri.adrianterastaginting.DetailBeritaActivity
+import vix.mandiri.adrianterastaginting.adapter.BeritaAdapter
 import vix.mandiri.adrianterastaginting.databinding.FragmentSemuaBeritaBinding
-import vix.mandiri.adrianterastaginting.model.Article
-import vix.mandiri.adrianterastaginting.model.NewsApiResponse
+import vix.mandiri.adrianterastaginting.model.Berita
+import vix.mandiri.adrianterastaginting.model.BeritaApiResponse
 import vix.mandiri.adrianterastaginting.model.SemuaBerita
 
-class SemuaBeritaFragment : Fragment(), NewsAdapter.OnItemClickListener {
+class SemuaBeritaFragment : Fragment(), BeritaAdapter.OnItemClickListener {
 
     private var _binding: FragmentSemuaBeritaBinding? = null
-    private lateinit var adapter: NewsAdapter
+    private lateinit var adapter: BeritaAdapter
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
@@ -35,9 +36,9 @@ class SemuaBeritaFragment : Fragment(), NewsAdapter.OnItemClickListener {
 
         _binding = FragmentSemuaBeritaBinding.inflate(inflater, container, false)
 
-        adapter = NewsAdapter(this)
-        binding.newsRecyclerView.adapter = adapter
-        binding.newsRecyclerView.layoutManager = LinearLayoutManager(context)
+        adapter = BeritaAdapter(this)
+        binding.beritaRecyclerView.adapter = adapter
+        binding.beritaRecyclerView.layoutManager = LinearLayoutManager(context)
 
         var data = binding.searchBerita.query
         binding.btnSearchBerita.setOnClickListener {
@@ -56,10 +57,10 @@ class SemuaBeritaFragment : Fragment(), NewsAdapter.OnItemClickListener {
 
         val service = retrofit.create(SemuaBerita::class.java)
         service.getEverything(cari,  "107abca9ae3541e1a85b3ef5b31f1be9")
-            .enqueue(object : Callback<NewsApiResponse> {
+            .enqueue(object : Callback<BeritaApiResponse> {
                 override fun onResponse(
-                    call: Call<NewsApiResponse>,
-                    response: Response<NewsApiResponse>
+                    call: Call<BeritaApiResponse>,
+                    response: Response<BeritaApiResponse>
                 ) {
                     if (response.isSuccessful) {
                         val articles = response.body()?.articles ?: emptyList()
@@ -67,17 +68,16 @@ class SemuaBeritaFragment : Fragment(), NewsAdapter.OnItemClickListener {
                     }
                 }
 
-                override fun onFailure(call: Call<NewsApiResponse>, t: Throwable) {
+                override fun onFailure(call: Call<BeritaApiResponse>, t: Throwable) {
                     // handle failure
                 }
             })
     }
 
-    override fun onItemClick(article: Article) {
-        Toast.makeText(context,"Ke $article ", Toast.LENGTH_SHORT).show()
-//        val intent = Intent(activity, ArticleDetailActivity::class.java)
-//        intent.putExtra("article", article)
-//        startActivity(intent)
+    override fun onItemClick(article: Berita) {
+        val intent = Intent(activity, DetailBeritaActivity::class.java)
+        intent.putExtra("article", article)
+        startActivity(intent)
     }
 
     override fun onDestroyView() {

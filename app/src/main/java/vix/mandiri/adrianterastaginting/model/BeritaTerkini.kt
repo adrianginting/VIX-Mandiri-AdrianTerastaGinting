@@ -8,5 +8,5 @@ interface BeritaTerkini {
     fun getTopHeadlines(
         @Query("country") country: String,
         @Query("apiKey") apiKey: String
-    ): retrofit2.Call<NewsApiResponse>
+    ): retrofit2.Call<BeritaApiResponse>
 }
